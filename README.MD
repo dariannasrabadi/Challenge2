@@ -20,7 +20,7 @@
 
 [x] Create display area for current results (This is what the clear button will reset)
 
-[ ] Send data for processing to server via POST
+[x] Send data for processing to server via POST & ajax
 
 [ ] Display results via GET to the results and history log area. 
 
@@ -30,7 +30,7 @@
 
 [ ] Create server side files and nodes. 
 
-[ ] Install Express & Body-Parser
+[x] Install Express & Body-Parser
 
 [ ] Create a calculations function and a storage area for history logs and future use.
 
