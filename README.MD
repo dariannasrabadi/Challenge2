@@ -34,10 +34,10 @@
 
 [ ] Send back the results via GET
 
-##Hard Mode
+## Hard Mode
 
     TBA
 
-##Pro Mode 
+## Pro Mode 
 
     TBA
