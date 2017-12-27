@@ -28,9 +28,11 @@
 
 ## Server Side
 
-[ ] Create server side files and nodes. 
+[x] Create server side files and nodes. 
 
 [x] Install Express & Body-Parser
+
+[x] Create consts then the basic app.use/listen/post 
 
 [ ] Create a calculations function and a storage area for history logs and future use.
 

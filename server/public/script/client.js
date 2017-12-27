@@ -72,11 +72,11 @@ function storeDataMultiply() {//Start of Multiply function
     dataToSend = new Calculation($('#valueOne').val(), $('#valueTwo').val(), 'multiply')
     console.log('Inside multiply function', dataToSend);
     $.ajax({ //Start of POST AJAX
-        Method: 'POST',
+        method: 'POST',
         url: '/runCalculator',
         data: dataToSend,
         success: function(response){
-            console.log('Inside POST Ajax ', response);
+            console.log('Inside POST Ajax', response);
             //will place get ajax function inside of this. 
         }
     })// END OF POST AJAX
