@@ -30,7 +30,7 @@ function storeDataAdd() {//Start of Add function
     dataToSend = new Calculation($('#valueOne').val(), $('#valueTwo').val(), 'add')
     console.log('Inside add function', dataToSend);
     $.ajax({ //Start of POST AJAX
-        Method: 'POST',
+        method: 'POST',
         url: '/runCalculator',
         data: dataToSend,
         success: function(response){
@@ -44,7 +44,7 @@ function storeDataMinus() {//Start of Minus function
     dataToSend = new Calculation($('#valueOne').val(), $('#valueTwo').val(), 'minus')
     console.log('Inside minus function', dataToSend);
     $.ajax({ //Start of POST AJAX
-        Method: 'POST',
+        method: 'POST',
         url: '/runCalculator',
         data: dataToSend,
         success: function(response){
@@ -58,7 +58,7 @@ function storeDataDivide() {//Start of Divide function
     dataToSend = new Calculation($('#valueOne').val(), $('#valueTwo').val(), 'divide')
     console.log('Inside divide function', dataToSend);
     $.ajax({ //Start of POST AJAX
-        Method: 'POST',
+        method: 'POST',
         url: '/runCalculator',
         data: dataToSend,
         success: function(response){

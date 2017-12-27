@@ -34,11 +34,11 @@
 
 [x] Create consts then the basic app.use/listen/post 
 
-[ ] Create a calculations function and a storage area for history logs and future use.
+[x] Create a calculations function and a storage area for history logs and future use.
 
-[ ] Grab the POST request from client and run through the function (Console log to see the POST received and function result)
+[x] Grab the POST request from client and run through the function (Console log to see the POST received and function result)
 
-[ ] Store the result into the history variable
+[x] Store the result into the history variable
 
 [ ] Send back the results via GET
 

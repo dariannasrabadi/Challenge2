@@ -13,6 +13,9 @@ app.use(bodyParser.urlencoded({extended:true}));
 //POST & GET Area
 app.post('/runCalculator', function(req,res){
     console.log('/runCalculator POST from client hit: ', req.body);
+    calculation(req.body);
+    history.addHistory(req.body)
+    console.log(history.historyLog);
     res.sendStatus(201);    
 })
 
