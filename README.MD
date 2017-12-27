@@ -24,7 +24,7 @@
 
 [x] Display results via GET to the results and history log area. 
 
-[ ] make the clear button reset the displayed result
+[x] make the clear button reset the displayed result
 
 ## Server Side
 

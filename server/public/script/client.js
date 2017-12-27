@@ -4,7 +4,8 @@ function start() {//Start of document listener
 $('#add').on('click', storeDataAdd);
 $('#minus').on('click', storeDataMinus);
 $('#divide').on('click', storeDataDivide);
-$('#multiply').on('click', storeDataMultiply);   
+$('#multiply').on('click', storeDataMultiply);  
+$('#reset').on('click', clearBtn);
 getHistory();
 }//end of document listener
 
@@ -98,7 +99,7 @@ function displayHistory(historyArray) {// Start of displayHistory Function
     } // End for statement
 } // End of displayHistory Function
 
-function getResults() { // Start of getResults Function
+function getResults() { // Start of getResults Function // Redundant and I thought it was not needed but when I remove this and everything related to it, the calculations do not work. will have to go through everything again when I have time.
     console.log('In getResults from URL /runCalculator');
     $.ajax({
         method: 'GET',
@@ -120,3 +121,9 @@ function getHistory() { // Start of getHistory Function
         }
     });
 } // End of getHistory Function
+
+function clearBtn() {//Clear results area.
+    $('#currentResults').empty();
+    $('#valueOne').val('');
+    $('#valueTwo').val('');
+}
