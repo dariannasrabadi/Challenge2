@@ -10,9 +10,9 @@
 
 [x] Create 2 input fields & 4 buttons containing "+, -, / and *" 
 
-[ ] Create a clear button (designed to reset the calculations).
+[x] Create a clear button (designed to reset the calculations).
 
-[ ] Add history log area
+[x] Add history log area
 
 [ ] create basic layout/style for client side
 
