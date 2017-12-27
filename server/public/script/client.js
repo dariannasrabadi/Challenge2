@@ -35,7 +35,8 @@ function storeDataAdd() {//Start of Add function
         data: dataToSend,
         success: function(response){
             console.log('Inside POST Ajax ', response);
-            //will place get ajax function inside of this. 
+            getResults();
+            getHistory(); 
         }
     })// END OF POST AJAX
 }//End of Add function
@@ -49,7 +50,8 @@ function storeDataMinus() {//Start of Minus function
         data: dataToSend,
         success: function(response){
             console.log('Inside POST Ajax ', response);
-            //will place get ajax function inside of this. 
+            getResults();
+            getHistory(); 
         }
     })// END OF POST AJAX
 }//End of Minus function
@@ -63,7 +65,8 @@ function storeDataDivide() {//Start of Divide function
         data: dataToSend,
         success: function(response){
             console.log('Inside POST Ajax ', response);
-            //will place get ajax function inside of this. 
+            getResults();
+            getHistory(); 
         }
     })// END OF POST AJAX
 }//End of Divide function
@@ -77,8 +80,43 @@ function storeDataMultiply() {//Start of Multiply function
         data: dataToSend,
         success: function(response){
             console.log('Inside POST Ajax', response);
-            //will place get ajax function inside of this. 
+            getResults();
+            getHistory(); 
         }
     })// END OF POST AJAX
 }//End of Multiply function
 
+/** END OF SAME FUNCTIONS DIFFERENT TYPES **/
+
+function displayHistory(historyArray) {// Start of displayHistory Function   
+    let $compHis = $( '#computationsHistory' );
+    $compHis.empty();
+    for( let i=0; i< historyArray.length; i++ ){
+        $compHis.append( '<li>' + historyArray[i].value1 + ' ' + historyArray[i].type + ' ' + historyArray[i].value2 + ' ' + '=' + ' ' + historyArray[i].result + '</li>')
+    } // End for statement
+} // End of displayHistory Function
+
+function getResults() { // Start of getResults Function
+    console.log('In getResults from URL /runCalculator');
+    $.ajax({
+        method: 'GET',
+        url: '/runCalculator',
+        success: function(response){
+            console.log('back from server with: ', response);
+            $('#currentResults').empty();
+            $('#currentResults').append('<h2> RESULT: ' + response + '</h2>')
+        }
+    });
+} // End of getResults Function
+
+function getHistory() { // Start of getHistory Function
+    console.log('In getHistory from URL /historyLogData');
+    $.ajax({
+        method: 'GET',
+        url: '/historyLogData',
+        success: function(response){
+            console.log('back from server with: ', response);
+            displayHistory(response)
+        }
+    });
+} // End of getHistory Function
