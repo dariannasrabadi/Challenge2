@@ -2,7 +2,7 @@
 
 [x] Create readme, do gitinit & npm init.
 
-[x] create files needed for client side.
+[x] Create files needed for client side.
 
 ## Client Side
 
@@ -14,9 +14,11 @@
 
 [x] Add history log area
 
-[ ] create basic layout/style for client side
+[x] Create basic layout/style for client side
 
-[ ] grab values from input fields and the button clicked and place into an object to be sent to the server via POST
+[ ] Create document ready and place into an object the values from input fields and the button clicked
+
+[ ] Send data for processing to server via POST
 
 [ ] Display results via GET to the history log area.  
 
