@@ -16,11 +16,15 @@
 
 [x] Create basic layout/style for client side
 
-[ ] Create document ready and place into an object the values from input fields and the button clicked
+[x] Create document ready and place into an object the values from input fields and the button clicked
+
+[x] Create display area for current results (This is what the clear button will reset)
 
 [ ] Send data for processing to server via POST
 
-[ ] Display results via GET to the history log area.  
+[ ] Display results via GET to the results and history log area. 
+
+[ ] make the clear button reset the displayed result
 
 ## Server Side
 
