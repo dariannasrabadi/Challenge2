@@ -5,7 +5,7 @@ $('#add').on('click', storeDataAdd);
 $('#minus').on('click', storeDataMinus);
 $('#divide').on('click', storeDataDivide);
 $('#multiply').on('click', storeDataMultiply);   
-
+getHistory();
 }//end of document listener
 
 class Calculation{ //Start Calculation Class Constructor
@@ -91,6 +91,8 @@ function storeDataMultiply() {//Start of Multiply function
 function displayHistory(historyArray) {// Start of displayHistory Function   
     let $compHis = $( '#computationsHistory' );
     $compHis.empty();
+    $('#currentResults').empty();
+    $('#currentResults').append('<h2> RESULT: ' + (historyArray[0].result) + '</h2>')
     for( let i=0; i< historyArray.length; i++ ){
         $compHis.append( '<li>' + historyArray[i].value1 + ' ' + historyArray[i].type + ' ' + historyArray[i].value2 + ' ' + '=' + ' ' + historyArray[i].result + '</li>')
     } // End for statement
@@ -103,8 +105,6 @@ function getResults() { // Start of getResults Function
         url: '/runCalculator',
         success: function(response){
             console.log('back from server with: ', response);
-            $('#currentResults').empty();
-            $('#currentResults').append('<h2> RESULT: ' + response + '</h2>')
         }
     });
 } // End of getResults Function

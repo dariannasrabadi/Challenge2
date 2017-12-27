@@ -19,9 +19,12 @@ app.post('/runCalculator', function(req,res){
     res.sendStatus(201);    
 })
 
-app.get('/runCalculator', function(req,res){
-    console.log('/runCalculator GET back to client: ', calculation.compResults);
-    res.send(calculation.compResults)        
+app.get('/runCalculator', function(req,res){ //THIS BECAME REDUNDANT --> WAS initially computations.compresult but it didnt work. Changed the formula of logs to unshift instead of push to always grab the latest one)
+    console.log('/runCalculator GET back to client: ', history.historyLog);
+    let resultsData = {
+        result: history.historyLog
+    }
+    res.send(resultsData)        
 })
 
 app.get('/historyLogData', function(req,res){

@@ -22,7 +22,7 @@
 
 [x] Send data for processing to server via POST & ajax
 
-[ ] Display results via GET to the results and history log area. 
+[x] Display results via GET to the results and history log area. 
 
 [ ] make the clear button reset the displayed result
 
@@ -40,7 +40,7 @@
 
 [x] Store the result into the history variable
 
-[ ] Send back the results via GET
+[x] Send back the results via GET
 
 ## Hard Mode
 
