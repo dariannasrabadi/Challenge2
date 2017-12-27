@@ -6,9 +6,9 @@
 
 ## Client Side
 
-[ ] Create Basic HTML layout and link necessary files in order
+[x] Create Basic HTML layout and link necessary files in order
 
-[ ] Create 2 input fields & 4 buttons containing "+, -, / and *" 
+[x] Create 2 input fields & 4 buttons containing "+, -, / and *" 
 
 [ ] Create a clear button (designed to reset the calculations).
 
