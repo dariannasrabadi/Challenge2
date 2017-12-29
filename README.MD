@@ -55,3 +55,5 @@
 [ ] Allow a user to click on an entry in the History list to re-run that calculation. This should display the answer on the calculator interface like a normal calculation.
 
 [ ] Anything else I can think of!
+
+[x] Carry over total to next computation
