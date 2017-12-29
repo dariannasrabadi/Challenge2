@@ -26,8 +26,55 @@ let symbolType; //For stored sign to be sent.
 /** End Universal Variables **/
 
 function addValueOne() { //Start of addValueOne function
-    valueOne = document.getElementById("currentResults").innerHTML
-    console.log('Inside addValueOne Function', valueOne);
+    if (document.getElementById("currentResults").innerHTML == 'x' || document.getElementById("currentResults").innerHTML == '-' || document.getElementById("currentResults").innerHTML == '+' || document.getElementById("currentResults").innerHTML == '÷') {
+        console.log('double symbol overwriting previous one: ', document.getElementById("currentResults").innerHTML);
+       
+        if ($(this).is('#divide')) { //start of if else statements in if
+            document.getElementById("currentResults").innerHTML = '÷';
+            symbolType = 'divide';
+        }
+
+        else if ($(this).is('#add')) {
+            document.getElementById("currentResults").innerHTML = '+';
+            symbolType = 'add';
+        }
+
+        else if ($(this).is('#minus')) {
+            document.getElementById("currentResults").innerHTML = '-';
+            symbolType = 'minus';
+        }
+
+        else if ($(this).is('#multiply')) {
+            document.getElementById("currentResults").innerHTML = 'x';
+            symbolType = 'multiply';
+        }// end of if else statements in if. 
+    }//end of if
+
+    else { // start of else
+        valueOne = document.getElementById("currentResults").innerHTML;
+        console.log('Added numbers to valueOne: ', valueOne);
+
+        if ($(this).is('#divide')) { //start of if else statements in else
+            document.getElementById("currentResults").innerHTML = '÷';
+            symbolType = 'divide';
+        }
+
+        else if ($(this).is('#add')) {
+            document.getElementById("currentResults").innerHTML = '+';
+            symbolType = 'add';
+        }
+
+        else if ($(this).is('#minus')) {
+            document.getElementById("currentResults").innerHTML = '-';
+            symbolType = 'minus';
+        }
+
+        else if ($(this).is('#multiply')) {
+            document.getElementById("currentResults").innerHTML = 'x';
+            symbolType = 'multiply';
+        }// end of if else statements in else
+    }// end of else
+    console.log('This is the symbolType: ', symbolType);
     
 } //End of addValueOne function
 
@@ -229,9 +276,7 @@ function getHistory() { // Start of getHistory Function
 } // End of getHistory Function
 
 function clearBtn() {//Clear results area.
-    document.getElementById("currentResults").innerHTML = 'hello';
-    $('#valueOne').val('');
-    $('#valueTwo').val('');
+    document.getElementById("currentResults").innerHTML = '0';
     console.log('inside clear');
     console.log(document.getElementById("currentResults").innerHTML);
     
