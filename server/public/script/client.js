@@ -1,7 +1,7 @@
 $(document).ready(start);
 
 function start() {//Start of document listener
-    $('#equal').on('click', submitRequest) 
+    $('#equal').on('click', sendStoreData) 
     $('.numbers').on('click', changeDisplayResult)
     $('.calculations').on('click', addValueOne)
     $('#reset').on('click', clearBtn);
@@ -24,6 +24,8 @@ let valueOne; //For stored value one from buttons
 let valueTwo; //For stored value two from buttons
 let symbolType; //For stored sign to be sent. 
 /** End Universal Variables **/
+
+// TRIED SHORTENING document.getElementById("currentResults").innerHTML to curRes but it would not work that way. Had to leave it lengthy 
 
 function addValueOne() { //Start of addValueOne function
     if (document.getElementById("currentResults").innerHTML == 'x' || document.getElementById("currentResults").innerHTML == '-' || document.getElementById("currentResults").innerHTML == '+' || document.getElementById("currentResults").innerHTML == '÷') {
@@ -78,11 +80,15 @@ function addValueOne() { //Start of addValueOne function
     
 } //End of addValueOne function
 
-function submitRequest() {
-    
-}
+function changeDisplayResult() { //Start of ChangeDisplayResult Function
+    if (document.getElementById("currentResults").innerHTML == 'x' || document.getElementById("currentResults").innerHTML == '-' || document.getElementById("currentResults").innerHTML == '+' || document.getElementById("currentResults").innerHTML == '÷') {
+        document.getElementById("currentResults").innerHTML = 0; 
+    }
 
-function changeDisplayResult() {
+    else if (document.getElementById("currentResults").innerHTML.includes('Total')) {
+        document.getElementById("currentResults").innerHTML = 0; 
+    }
+
     if ($(this).is('#one')) {
         if (document.getElementById("currentResults").innerHTML == 0) {
             document.getElementById("currentResults").innerHTML = 1;        
@@ -171,17 +177,12 @@ function changeDisplayResult() {
             document.getElementById("currentResults").innerHTML = 0;        
         }
     }
-}
+}//End of ChangeDisplayResult Function
 
 
-
-
-
-
-/*********** Following functions are the same with just the "type" being different per function. **************/
-
-function storeDataAdd() {//Start of Add function
-    dataToSend = new Calculation($('#valueOne').val(), $('#valueTwo').val(), 'add')
+function sendStoreData() {//Start of sendStoreData function
+    valueTwo = document.getElementById("currentResults").innerHTML;
+    dataToSend = new Calculation(valueOne, valueTwo, symbolType)
     console.log('Inside add function', dataToSend);
     $.ajax({ //Start of POST AJAX
         method: 'POST',
@@ -193,59 +194,16 @@ function storeDataAdd() {//Start of Add function
             getHistory(); 
         }
     })// END OF POST AJAX
-}//End of Add function
-
-function storeDataMinus() {//Start of Minus function
-    dataToSend = new Calculation($('#valueOne').val(), $('#valueTwo').val(), 'minus')
-    console.log('Inside minus function', dataToSend);
-    $.ajax({ //Start of POST AJAX
-        method: 'POST',
-        url: '/runCalculator',
-        data: dataToSend,
-        success: function(response){
-            console.log('Inside POST Ajax ', response);
-            getResults();
-            getHistory(); 
-        }
-    })// END OF POST AJAX
-}//End of Minus function
-
-function storeDataDivide() {//Start of Divide function
-    dataToSend = new Calculation($('#valueOne').val(), $('#valueTwo').val(), 'divide')
-    console.log('Inside divide function', dataToSend);
-    $.ajax({ //Start of POST AJAX
-        method: 'POST',
-        url: '/runCalculator',
-        data: dataToSend,
-        success: function(response){
-            console.log('Inside POST Ajax ', response);
-            getResults();
-            getHistory(); 
-        }
-    })// END OF POST AJAX
-}//End of Divide function
-
-function storeDataMultiply() {//Start of Multiply function
-    dataToSend = new Calculation($('#valueOne').val(), $('#valueTwo').val(), 'multiply')
-    console.log('Inside multiply function', dataToSend);
-    $.ajax({ //Start of POST AJAX
-        method: 'POST',
-        url: '/runCalculator',
-        data: dataToSend,
-        success: function(response){
-            console.log('Inside POST Ajax', response);
-            getResults();
-            getHistory(); 
-        }
-    })// END OF POST AJAX
-}//End of Multiply function
-
-/** END OF SAME FUNCTIONS DIFFERENT TYPES **/
+    valueOne = ''
+    valueTwo = ''
+    symbolType = ''
+    console.log('testing 3 vars after sent to server: ', valueOne, valueTwo, symbolType);
+    
+}//End of sendStoreData function
 
 function displayHistory(historyArray) {// Start of displayHistory Function   
     let $compHis = $( '#computationsHistory' );
     $compHis.empty();
-    document.getElementById("currentResults").empty();
     document.getElementById("currentResults").innerHTML = ('Total: ' + (historyArray[0].result))
     for( let i=0; i< historyArray.length; i++ ){
         $compHis.append( '<li>' + historyArray[i].value1 + ' ' + historyArray[i].type + ' ' + historyArray[i].value2 + ' ' + '=' + ' ' + historyArray[i].result + '</li>')
