@@ -1,12 +1,11 @@
 $(document).ready(start);
 
 function start() {//Start of document listener
-$('#add').on('click', storeDataAdd);
-$('#minus').on('click', storeDataMinus);
-$('#divide').on('click', storeDataDivide);
-$('#multiply').on('click', storeDataMultiply);  
-$('#reset').on('click', clearBtn);
-getHistory();
+    $('#equal').on('click', submitRequest) 
+    $('.numbers').on('click', changeDisplayResult)
+    $('.calculations').on('click', addValueOne)
+    $('#reset').on('click', clearBtn);
+    getHistory();
 }//end of document listener
 
 class Calculation{ //Start Calculation Class Constructor
@@ -19,18 +18,118 @@ class Calculation{ //Start Calculation Class Constructor
 
 } //End Calculations Class Constructor
 
-
-
-
-
-
-
-
-
-
 /** Universal Variables **/
 let dataToSend; //Data from Client to be sent to server
+let valueOne; //For stored value one from buttons
+let valueTwo; //For stored value two from buttons
+let symbolType; //For stored sign to be sent. 
 /** End Universal Variables **/
+
+function addValueOne() { //Start of addValueOne function
+    valueOne = document.getElementById("currentResults").innerHTML
+    console.log('Inside addValueOne Function', valueOne);
+    
+} //End of addValueOne function
+
+function submitRequest() {
+    
+}
+
+function changeDisplayResult() {
+    if ($(this).is('#one')) {
+        if (document.getElementById("currentResults").innerHTML == 0) {
+            document.getElementById("currentResults").innerHTML = 1;        
+        }
+        else {
+        document.getElementById("currentResults").innerHTML += 1;  
+        }
+    }
+
+    else if($(this).is('#two')) {
+        if (document.getElementById("currentResults").innerHTML == 0) {
+            document.getElementById("currentResults").innerHTML = 2;        
+        }
+        else {
+        document.getElementById("currentResults").innerHTML += 2;  
+        }
+    }
+
+    else if($(this).is('#three')) { 
+        if (document.getElementById("currentResults").innerHTML == 0) {
+            document.getElementById("currentResults").innerHTML = 3;        
+        }
+        else {
+        document.getElementById("currentResults").innerHTML += 3;  
+        }
+    }
+
+    else if($(this).is('#four')) {
+        if (document.getElementById("currentResults").innerHTML == 0) {
+            document.getElementById("currentResults").innerHTML = 4;        
+        }
+        else {
+        document.getElementById("currentResults").innerHTML += 4;  
+        }
+    }
+
+    else if($(this).is('#five')) {
+        if (document.getElementById("currentResults").innerHTML == 0) {
+            document.getElementById("currentResults").innerHTML = 5;        
+        }
+        else {
+        document.getElementById("currentResults").innerHTML += 5;  
+        }
+    }
+
+    else if($(this).is('#six')) {
+        if (document.getElementById("currentResults").innerHTML == 0) {
+            document.getElementById("currentResults").innerHTML = 6;        
+        }
+        else {
+        document.getElementById("currentResults").innerHTML += 6;  
+        }
+    }
+
+    else if($(this).is('#seven')) {
+        if (document.getElementById("currentResults").innerHTML == 0) {
+            document.getElementById("currentResults").innerHTML = 7;        
+        }
+        else {
+        document.getElementById("currentResults").innerHTML += 7;  
+        }
+    }
+
+    else if($(this).is('#eight')) {
+        if (document.getElementById("currentResults").innerHTML == 0) {
+            document.getElementById("currentResults").innerHTML = 8;        
+        }
+        else {
+        document.getElementById("currentResults").innerHTML += 8;  
+        }
+    }
+
+    else if($(this).is('#nine')) {
+        if (document.getElementById("currentResults").innerHTML == 0) {
+            document.getElementById("currentResults").innerHTML = 9;        
+        }
+        else {
+        document.getElementById("currentResults").innerHTML += 9;  
+        }
+    }
+
+    else if($(this).is('#zero')) {
+        document.getElementById("currentResults").innerHTML += 0;
+        
+        if (document.getElementById("currentResults").innerHTML == 00) {
+            document.getElementById("currentResults").innerHTML = 0;        
+        }
+    }
+}
+
+
+
+
+
 
 /*********** Following functions are the same with just the "type" being different per function. **************/
 
@@ -99,8 +198,8 @@ function storeDataMultiply() {//Start of Multiply function
 function displayHistory(historyArray) {// Start of displayHistory Function   
     let $compHis = $( '#computationsHistory' );
     $compHis.empty();
-    $('#currentResults').empty();
-    $('#currentResults').append('<h2> Total: ' + (historyArray[0].result) + '</h2>')
+    document.getElementById("currentResults").empty();
+    document.getElementById("currentResults").innerHTML = ('Total: ' + (historyArray[0].result))
     for( let i=0; i< historyArray.length; i++ ){
         $compHis.append( '<li>' + historyArray[i].value1 + ' ' + historyArray[i].type + ' ' + historyArray[i].value2 + ' ' + '=' + ' ' + historyArray[i].result + '</li>')
     } // End for statement
@@ -130,7 +229,11 @@ function getHistory() { // Start of getHistory Function
 } // End of getHistory Function
 
 function clearBtn() {//Clear results area.
-    $('#currentResults').html('<h2>0</h2>');
+    document.getElementById("currentResults").innerHTML = 'hello';
     $('#valueOne').val('');
     $('#valueTwo').val('');
+    console.log('inside clear');
+    console.log(document.getElementById("currentResults").innerHTML);
+    
+    
 }

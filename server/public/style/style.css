@@ -3,7 +3,7 @@
     background-color: lightgray
 }
 
-#currentResults {
+#currentResultsContainer {
     width: 200px;
     background-color: darkgray;
     padding-right: 5px;
@@ -11,8 +11,8 @@
 
 #reset {
     height: 25px;
-    padding-left: 27px;
-    padding-right: 28px;
+    padding-left: 25px;
+    padding-right: 25px;
     margin-bottom: 4px
 }
 
@@ -27,7 +27,8 @@ h1 {
 }
 
 button {
-    margin-bottom: 2px
+    margin-bottom: 2px;
+    font: 0.8em sans-serif;
 }
 
 #calculationsContainer {
@@ -40,7 +41,7 @@ button {
 }
 
 .calculations {
-    width: 40px;
+    width: 39.5px;
     height: 25px;
 }
 
@@ -54,4 +55,11 @@ h3 {
     margin: 0px;
     margin-bottom: 5px;
     width: 200px
+}
+
+#equal {
+    width: 83px;
+    padding-left: 25px;
+    padding-right: 25px;
+    height: 25px
 }

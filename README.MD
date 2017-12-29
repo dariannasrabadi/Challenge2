@@ -44,7 +44,7 @@
 
 ## Hard Mode
 
-[ ] Convert the input fields for the two values to Numerical Buttons. 
+[x] Convert the input fields for the two values to Numerical Buttons. 
 [ ] Equal sign that sends the values and desired calculation to the server for the desired answer
 
 ## Pro Mode 
