@@ -11,19 +11,26 @@
     <header>
         <h1>Basic Calculator</h1>
     </header>
-    <div id="calculationsContainer">
-        <input type="number" id="valueOne">
-        <input type="number" id="valueTwo">
-        <div id="btnContainer"> <!-- Temporary, for base mode might change during Hardmode etc-->
-            <button id="add">+</button>
-            <button id="minus">-</button>
-            <button id="divide">÷</button>
-            <button id="multiply">x</button>
-            <button id="reset">Clear</button>
-        </div>
-        <div id="currentResults">
+    <div id="currentResults">
             <!-- This is where the computations are displayed -->
-        </div>
+    </div>
+    <div id="calculationsContainer">
+        <button id="one" class="numbers">1</button>
+        <button id="two" class="numbers">2</button>
+        <button id="three" class="numbers">3</button>
+        <button id="four" class="numbers">4</button>
+        <button id="five" class="numbers">5</button>
+        <button id="six" class="numbers">6</button>
+        <button id="seven" class="numbers">7</button>
+        <button id="eight" class="numbers">8</button>
+        <button id="nine" class="numbers">9</button>
+        <button id="zero" class="numbers">0</button>
+        <button id="add" class="calculations">+</button>
+        <button id="minus" class="calculations">-</button>
+        <button id="divide" class="calculations">÷</button>
+        <button id="multiply" class="calculations">x</button>
+        <button id="reset">Clear</button>
+        <h3>Calculation History:</h3>
         <div id="computationsHistory">
             <!-- This is where the history of all previous computations are displayed -->
         </div>

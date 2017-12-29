@@ -19,10 +19,17 @@ class Calculation{ //Start Calculation Class Constructor
 
 } //End Calculations Class Constructor
 
+
+
+
+
+
+
+
+
+
 /** Universal Variables **/
 let dataToSend; //Data from Client to be sent to server
-let dataReceived; //Data from server to be displayed
-let dataHistory; //Data from server of total computations.
 /** End Universal Variables **/
 
 /*********** Following functions are the same with just the "type" being different per function. **************/
@@ -93,7 +100,7 @@ function displayHistory(historyArray) {// Start of displayHistory Function
     let $compHis = $( '#computationsHistory' );
     $compHis.empty();
     $('#currentResults').empty();
-    $('#currentResults').append('<h2> RESULT: ' + (historyArray[0].result) + '</h2>')
+    $('#currentResults').append('<h2> Total: ' + (historyArray[0].result) + '</h2>')
     for( let i=0; i< historyArray.length; i++ ){
         $compHis.append( '<li>' + historyArray[i].value1 + ' ' + historyArray[i].type + ' ' + historyArray[i].value2 + ' ' + '=' + ' ' + historyArray[i].result + '</li>')
     } // End for statement
@@ -123,7 +130,7 @@ function getHistory() { // Start of getHistory Function
 } // End of getHistory Function
 
 function clearBtn() {//Clear results area.
-    $('#currentResults').empty();
+    $('#currentResults').html('<h2>0</h2>');
     $('#valueOne').val('');
     $('#valueTwo').val('');
 }

@@ -1,21 +1,57 @@
 #computationsHistory {
-    width: 300px;
-    height: 500px;
+    width: 200px;
     background-color: lightgray
 }
 
+#currentResults {
+    width: 200px;
+    background-color: darkgray;
+    padding-right: 5px;
+}
+
 #reset {
-    margin-left: 153px
+    height: 25px;
+    padding-left: 27px;
+    padding-right: 28px;
+    margin-bottom: 4px
+}
+
+#zero {
+    width: 83px;
+    padding-left: 25px;
+    padding-right: 25px
 }
 
 h1 {
     margin-bottom: 10px
 }
 
-input {
-    margin-bottom: 5px
-}
 button {
     margin-bottom: 2px
 }
 
+#calculationsContainer {
+    width: 100px
+}
+
+.numbers {
+    width: 25px;
+    height: 25px;
+}
+
+.calculations {
+    width: 40px;
+    height: 25px;
+}
+
+h2 {
+    text-align: right;
+    margin: 0px;
+    margin-bottom: 5px;
+}
+
+h3 {
+    margin: 0px;
+    margin-bottom: 5px;
+    width: 200px
+}
