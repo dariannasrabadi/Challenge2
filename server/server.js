@@ -8,7 +8,10 @@ const port = 43770;
 app.use(express.static('server/public')); //what to display on the hosted page
 app.use(bodyParser.urlencoded({extended:true}));
 
-
+// app.delete('/historyLogData', function(req,res){
+//     console.log('/historyLogData Delete ', 200);
+//     res.send('DELETE Request')        
+// })
 
 //POST & GET Area
 app.post('/runCalculator', function(req,res){
@@ -31,6 +34,7 @@ app.get('/historyLogData', function(req,res){
     console.log('/historyLogData GET back to client: ', history.historyLog);
     res.send(history.historyLog)        
 })
+
 //End POST & GET Area
 
 

@@ -1,10 +1,12 @@
 $(document).ready(start);
 
 function start() {//Start of document listener
-    $('#equal').on('click', sendStoreData) 
-    $('.numbers').on('click', changeDisplayResult)
-    $('.calculations').on('click', addValueOne)
+    $('#equal').on('click', sendStoreData);
+    $('.numbers').on('click', changeDisplayResult);
+    $('.calculations').on('click', addValueOne);
     $('#reset').on('click', clearBtn);
+    // $('#deleteHistory').on('click', deleteAllHistory);
+    $('#computationsHistory').on('click', 'li', changeDisplayToSelectedHistory)
     getHistory();
 }//end of document listener
 
@@ -23,9 +25,19 @@ let dataToSend; //Data from Client to be sent to server
 let valueOne; //For stored value one from buttons
 let valueTwo; //For stored value two from buttons
 let symbolType; //For stored sign to be sent. 
+let resultOfData; //testing
 /** End Universal Variables **/
 
 // TRIED SHORTENING document.getElementById("currentResults").innerHTML to curRes but it would not work that way. Had to leave it lengthy 
+
+//Failed attempt at deleteHistory
+// function deleteAllHistory() {
+//     $.ajax({ //Start of POST AJAX
+//         method: 'DELETE',
+//         url: '/historyLogData',
+//     })// END OF POST AJAX    
+// }
+
 
 function addValueOne() { //Start of addValueOne function
     if (document.getElementById("currentResults").innerHTML == 'x' || document.getElementById("currentResults").innerHTML == '-' || document.getElementById("currentResults").innerHTML == '+' || document.getElementById("currentResults").innerHTML == '÷' || document.getElementById("currentResults").innerHTML.includes('Total')) {
@@ -94,7 +106,7 @@ function changeDisplayResult() { //Start of ChangeDisplayResult Function
             document.getElementById("currentResults").innerHTML = 1;        
         }
         else {
-        document.getElementById("currentResults").innerHTML += 1;  
+            document.getElementById("currentResults").innerHTML += 1;  
         }
     }
 
@@ -103,7 +115,7 @@ function changeDisplayResult() { //Start of ChangeDisplayResult Function
             document.getElementById("currentResults").innerHTML = 2;        
         }
         else {
-        document.getElementById("currentResults").innerHTML += 2;  
+            document.getElementById("currentResults").innerHTML += 2;  
         }
     }
 
@@ -112,7 +124,7 @@ function changeDisplayResult() { //Start of ChangeDisplayResult Function
             document.getElementById("currentResults").innerHTML = 3;        
         }
         else {
-        document.getElementById("currentResults").innerHTML += 3;  
+            document.getElementById("currentResults").innerHTML += 3;  
         }
     }
 
@@ -121,7 +133,7 @@ function changeDisplayResult() { //Start of ChangeDisplayResult Function
             document.getElementById("currentResults").innerHTML = 4;        
         }
         else {
-        document.getElementById("currentResults").innerHTML += 4;  
+            document.getElementById("currentResults").innerHTML += 4;  
         }
     }
 
@@ -130,7 +142,7 @@ function changeDisplayResult() { //Start of ChangeDisplayResult Function
             document.getElementById("currentResults").innerHTML = 5;        
         }
         else {
-        document.getElementById("currentResults").innerHTML += 5;  
+            document.getElementById("currentResults").innerHTML += 5;  
         }
     }
 
@@ -139,7 +151,7 @@ function changeDisplayResult() { //Start of ChangeDisplayResult Function
             document.getElementById("currentResults").innerHTML = 6;        
         }
         else {
-        document.getElementById("currentResults").innerHTML += 6;  
+            document.getElementById("currentResults").innerHTML += 6;  
         }
     }
 
@@ -148,7 +160,7 @@ function changeDisplayResult() { //Start of ChangeDisplayResult Function
             document.getElementById("currentResults").innerHTML = 7;        
         }
         else {
-        document.getElementById("currentResults").innerHTML += 7;  
+            document.getElementById("currentResults").innerHTML += 7;  
         }
     }
 
@@ -157,7 +169,7 @@ function changeDisplayResult() { //Start of ChangeDisplayResult Function
             document.getElementById("currentResults").innerHTML = 8;        
         }
         else {
-        document.getElementById("currentResults").innerHTML += 8;  
+            document.getElementById("currentResults").innerHTML += 8;  
         }
     }
 
@@ -166,12 +178,12 @@ function changeDisplayResult() { //Start of ChangeDisplayResult Function
             document.getElementById("currentResults").innerHTML = 9;        
         }
         else {
-        document.getElementById("currentResults").innerHTML += 9;  
+            document.getElementById("currentResults").innerHTML += 9;  
         }
     }
 
     else if($(this).is('#zero')) {
-        document.getElementById("currentResults").innerHTML += 0;
+            document.getElementById("currentResults").innerHTML += 0;
         
         if (document.getElementById("currentResults").innerHTML == 00) {
             document.getElementById("currentResults").innerHTML = 0;        
@@ -231,6 +243,7 @@ function getHistory() { // Start of getHistory Function
         url: '/historyLogData',
         success: function(response){
             console.log('back from server with: ', response);
+            resultOfData = response;
             displayHistory(response)
         }
     });
@@ -240,6 +253,9 @@ function clearBtn() {//Clear results area.
     document.getElementById("currentResults").innerHTML = '0';
     console.log('inside clear');
     console.log(document.getElementById("currentResults").innerHTML);
-    
-    
+}//End clear results area
+
+function changeDisplayToSelectedHistory() {
+    let historyIndex = $(this).index();   
+    document.getElementById("currentResults").innerHTML = resultOfData[historyIndex].result; //setting display to the clicked history result
 }
