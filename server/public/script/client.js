@@ -28,7 +28,7 @@ let symbolType; //For stored sign to be sent.
 // TRIED SHORTENING document.getElementById("currentResults").innerHTML to curRes but it would not work that way. Had to leave it lengthy 
 
 function addValueOne() { //Start of addValueOne function
-    if (document.getElementById("currentResults").innerHTML == 'x' || document.getElementById("currentResults").innerHTML == '-' || document.getElementById("currentResults").innerHTML == '+' || document.getElementById("currentResults").innerHTML == '÷') {
+    if (document.getElementById("currentResults").innerHTML == 'x' || document.getElementById("currentResults").innerHTML == '-' || document.getElementById("currentResults").innerHTML == '+' || document.getElementById("currentResults").innerHTML == '÷' || document.getElementById("currentResults").innerHTML.includes('Total')) {
         console.log('double symbol overwriting previous one: ', document.getElementById("currentResults").innerHTML);
        
         if ($(this).is('#divide')) { //start of if else statements in if
@@ -204,7 +204,10 @@ function sendStoreData() {//Start of sendStoreData function
 function displayHistory(historyArray) {// Start of displayHistory Function   
     let $compHis = $( '#computationsHistory' );
     $compHis.empty();
-    document.getElementById("currentResults").innerHTML = ('Total: ' + (historyArray[0].result))
+    document.getElementById("currentResults").innerHTML = ('Total: ' + (historyArray[0].result));
+    valueOne = historyArray[0].result;
+    console.log(valueOne);
+    
     for( let i=0; i< historyArray.length; i++ ){
         $compHis.append( '<li>' + historyArray[i].value1 + ' ' + historyArray[i].type + ' ' + historyArray[i].value2 + ' ' + '=' + ' ' + historyArray[i].result + '</li>')
     } // End for statement
